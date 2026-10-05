@@ -1,0 +1,93 @@
+SHAPE: (2000, 20)
+
+MISSING VALUES:
+ warehouse_hours    25
+dtype: int64
+
+COST-PER-KM EXTREME OUTLIERS (3xIQR within mode): 41
+ROWS AFTER OUTLIER REMOVAL: 1959
+
+DESCRIPTIVE STATISTICS:
+                      count     mean      std    min     25%     50%      75%       max  median  skew
+distance_km         1959.0   924.25   795.31  30.00  416.20  611.00  1123.10   6132.30  611.00  1.89
+weight_kg           1959.0   320.26   261.37  10.90  142.30  240.40   407.20   1778.50  240.40  1.91
+shipment_volume_m3  1959.0     2.15     2.04   0.05    0.88    1.54     2.68     17.75    1.54  2.74
+warehouse_hours     1959.0     8.12     5.00   0.30    4.40    7.30    10.70     38.20    7.30  1.15
+planned_days        1959.0     2.63     1.00   1.00    2.00    2.00     3.00     10.00    2.00  2.32
+delay_days          1959.0     0.13     0.72  -1.00   -0.40    0.00     0.60      3.60    0.00  0.81
+delivery_days       1959.0     2.76     1.25   0.00    1.90    2.60     3.30     10.30    2.60  1.40
+transport_cost      1959.0  1174.16  2340.81  31.87  249.81  368.33   628.38  26383.35  368.33  4.04
+fuel_cost           1959.0   313.25   647.44   6.21   59.57   89.92   160.03   7270.73   89.92  4.25
+cost_per_km         1959.0     1.01     1.09   0.12    0.45    0.63     1.00      8.38    0.63  2.99
+
+ON-TIME RATE: 74.7%
+AVG DELAY (days): 0.13
+
+BY MODE:
+                 shipments  avg_cost  avg_cost_km  avg_delay  on_time
+transport_mode                                                      
+Air                   289   5685.96         3.16       0.10     0.77
+Rail                  421    404.16         0.45       0.08     0.78
+Road                 1077    336.68         0.77       0.16     0.73
+Sea                   172    722.04         0.29       0.16     0.71
+
+BY CARRIER:
+            shipments  avg_delay  on_time  avg_cost  rating
+carrier                                                   
+BlueLine         281       0.71     0.46    935.35    4.35
+CargoPro         467       0.02     0.79   1392.20    4.60
+RoadKing         593       0.20     0.74   1051.13    4.51
+SwiftMove        618      -0.11     0.85   1236.04    4.63
+
+BY REGION:
+          shipments  avg_delay  on_time  avg_cost
+region                                          
+Central        304       0.10     0.77   1325.92
+East           405       0.11     0.74   1110.65
+North          393       0.09     0.79   1334.72
+South          387       0.21     0.69   1132.10
+West           470       0.14     0.75   1031.12
+
+BY WEATHER:
+          shipments  avg_delay  on_time
+weather                               
+Clear         1147      -0.17     0.90
+Fog            227       0.49     0.56
+Rain           420       0.24     0.71
+Storm          165       1.41     0.04
+
+BY PRIORITY:
+           shipments  avg_cost  avg_delay
+priority                                
+Critical        199   1782.83      -0.19
+Express         576   1373.68       0.00
+Standard       1184    974.80       0.25
+
+BY MONTHLY:
+        shipments  total_volume  avg_delay  on_time  avg_cost
+month                                                       
+1            158       44677.0      -0.07     0.84   1261.53
+2            178       51344.8      -0.03     0.81   1246.16
+3            154       48725.1      -0.08     0.85    717.74
+4            162       52676.7      -0.00     0.78   1216.34
+5            144       44919.3       0.08     0.76   1168.68
+6            179       58470.9      -0.01     0.82   1275.35
+7            170       54378.6       0.00     0.80   1508.66
+8            159       49543.5       0.01     0.79   1070.40
+9            157       52301.8      -0.04     0.80    946.68
+10           169       57407.2       0.57     0.63   1239.33
+11           152       53262.6       0.54     0.57   1111.73
+12           177       59676.6       0.58     0.52   1249.53
+
+CORRELATION MATRIX:
+                  distance_km  weight_kg  warehouse_hours  delay_days  delivery_days  transport_cost  fuel_cost  customer_rating
+distance_km             1.00       0.02            -0.00       -0.01           0.62            0.52       0.53            -0.01
+weight_kg               0.02       1.00             0.14        0.10           0.09            0.20       0.22            -0.06
+warehouse_hours        -0.00       0.14             1.00        0.18           0.29           -0.01      -0.01            -0.06
+delay_days             -0.01       0.10             0.18        1.00           0.60           -0.01       0.02            -0.52
+delivery_days           0.62       0.09             0.29        0.60           1.00            0.04       0.06            -0.32
+transport_cost          0.52       0.20            -0.01       -0.01           0.04            1.00       0.95             0.02
+fuel_cost               0.53       0.22            -0.01        0.02           0.06            0.95       1.00             0.01
+customer_rating        -0.01      -0.06            -0.06       -0.52          -0.32            0.02       0.01             1.00
+
+All charts saved to charts/
